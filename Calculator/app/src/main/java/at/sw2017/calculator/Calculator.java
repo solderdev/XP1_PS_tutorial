@@ -84,7 +84,7 @@ public class Calculator extends Activity implements View.OnClickListener {
             case R.id.buttonResult:
                 break;
             case R.id.buttonC:
-                numberView.setText("0");
+                clearTextView();
                 break;
             default:
                 String recentNumber = numberView.getText().toString();
@@ -95,4 +95,9 @@ public class Calculator extends Activity implements View.OnClickListener {
                 numberView.setText(recentNumber);
         }
     }
+
+    private void clearTextView() {
+        numberView.setText("0");
+    }
+
 }
