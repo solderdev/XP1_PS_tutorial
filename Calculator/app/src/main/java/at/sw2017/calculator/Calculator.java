@@ -1,9 +1,10 @@
 package at.sw2017.calculator;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Calculator extends AppCompatActivity {
+public class Calculator extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
