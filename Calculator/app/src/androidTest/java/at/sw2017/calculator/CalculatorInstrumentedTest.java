@@ -31,12 +31,12 @@ public class CalculatorInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-        assertEquals("at.sw2017.calcuator", appContext.getPackageName());
+        assertEquals("at.sw2017.calculator", appContext.getPackageName());
     }
 
     @Test
     public void testButtons() throws Exception {
-        for (int i = 0; i <= 9; i++) {
+        for (int i = 1; i <= 9; i++) {
             onView(withText(Integer.toString(i))).perform(click());
         }
         onView(withText("+")).perform(click());
@@ -48,6 +48,7 @@ public class CalculatorInstrumentedTest {
 
     @Test
     public void testInputField() {
+        onView(withText("C")).perform(click());
         for (int i = 9; i >= 0; i--) {
             onView(withText(Integer.toString(i))).perform(click());
         }
@@ -60,5 +61,63 @@ public class CalculatorInstrumentedTest {
         onView(withText("C")).perform(click());
 
         onView(withId(R.id.textView)).check(matches(withText("0")));
+    }
+
+    @Test
+    public void testResultsAdd() {
+        onView(withText("C")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("+")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("6")));
+    }
+
+    @Test
+    public void testResultsSub() {
+        onView(withText("C")).perform(click());
+        onView(withText("4")).perform(click());
+        onView(withText("-")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("1")));
+    }
+
+    @Test
+    public void testResultsMul() {
+        onView(withText("C")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("*")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("9")));
+    }
+
+    @Test
+    public void testResultsDiv1() {
+        onView(withText("C")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("/")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("1")));
+    }
+
+    @Test
+    public void testResultsDiv2() {
+        onView(withText("C")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("/")).perform(click());
+        onView(withText("0")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("0")));
+    }
+
+    @Test
+    public void testResultsNum() {
+        onView(withText("C")).perform(click());
+        onView(withText("3")).perform(click());
+        onView(withText("=")).perform(click());
+        onView(withId(R.id.textView)).check(matches(withText("3")));
     }
 }
