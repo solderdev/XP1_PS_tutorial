@@ -62,7 +62,7 @@
         app:layout_constraintLeft_toRightOf="@+id/buttonEight" />
 
     <Button
-        android:id="@+id/buttonPlus"
+        android:id="@+id/buttonAdd"
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:layout_marginBottom="8dp"
@@ -124,11 +124,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:text="8"
-        app:layout_constraintBottom_toTopOf="@+id/buttonFife"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFive"
         app:layout_constraintLeft_toRightOf="@+id/buttonSeven" />
 
     <Button
-        android:id="@+id/buttonFife"
+        android:id="@+id/buttonFive"
         android:layout_width="80dip"
         android:layout_height="80dip"
         android:layout_marginBottom="8dp"
@@ -181,6 +181,16 @@
         android:text="C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="335dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEight"
+        tools:layout_editor_absoluteX="11dp" />
 
 
 </android.support.constraint.ConstraintLayout>
